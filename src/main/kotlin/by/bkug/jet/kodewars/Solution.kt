@@ -21,5 +21,8 @@ fun solution(arg1: Int, arg2: Int): Int {
  * longest(a, a) -> "abcdefghijklmnopqrstuvwxyz"
  */
 fun longest(s1: String, s2: String): String {
-    return "TODO";
+    return sequenceOf(s1, s2)
+            .flatMap(String::asSequence)
+            .toSortedSet()
+            .joinToString("")
 }
