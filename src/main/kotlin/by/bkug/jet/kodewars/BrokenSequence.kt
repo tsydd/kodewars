@@ -23,6 +23,20 @@ class BrokenSequence {
      * in this case, it's invalid because contain a non numerical character
      */
     fun findMissingNumber(s: String): Long {
-        return 42
+        try {
+            s.splitToSequence(" ")
+                    .filter(String::isNotEmpty)
+                    .map(String::toLong)
+                    .zip(generateSequence(1L, {it + 1}))
+                    .forEach { p ->
+                        val (v, expected) = p
+                        if (expected != v) {
+                            return expected
+                        }
+                    }
+        } catch (e: NumberFormatException) {
+            return 1
+        }
+        return 0
     }
 }
