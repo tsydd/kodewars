@@ -21,5 +21,5 @@ fun solution(arg1: Int, arg2: Int): Int {
  * longest(a, a) -> "abcdefghijklmnopqrstuvwxyz"
  */
 fun longest(s1: String, s2: String): String {
-    return "TODO";
+    return (s1 + s2).toCharArray().distinct().sorted().joinToString("")
 }
